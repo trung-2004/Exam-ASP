@@ -1,0 +1,38 @@
+﻿
+@model Exam.Models.Department.DepartmentEditModel;
+@{
+}
+<div class="container">
+    <h1>Edit Department</h1>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <form action="@Url.ActionLink("Edit")" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" name="name" value="@Model.name" class="form-control" placeholder="Enter Name">
+                    @Html.ValidationMessageFor(m=>m.name, "", new {@class="text-danger"})
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Code</label>
+                    <input type="text" name="code" value="@Model.code" class="form-control" placeholder="Enter Code" min="0">
+                    @Html.ValidationMessageFor(m=>m.code, "", new {@class="text-danger"})
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">NumberOfPersonals</label>
+                    <input type="number" name="numberOfPersonals" value="@Model.numberOfPersonals" class="form-control" placeholder="Enter NumberOfPersonals">
+                    @Html.ValidationMessageFor(m=>m.numberOfPersonals, "", new {@class="text-danger"})
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">location</label>
+                    <textarea type="text" name="location" class="form-control"
+                              placeholder="Location">@Model.location</textarea>
+                    @Html.ValidationMessageFor(m=>m.location, "", new {@class="text-danger"})
+                </div>
+
+                <button type="submit" class="btn btn-primary">Edit</button>
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>

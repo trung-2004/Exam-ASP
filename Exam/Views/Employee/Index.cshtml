@@ -1,0 +1,46 @@
+﻿@model List<Exam.Entities.Employee>
+@{
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <h1>List Product</h1>
+        </div>
+        <div class="col-lg-6">
+            <a asp-controller="Employee" asp-action="Create" class="btn btn-primary float-end">Add Employee</a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-lg-12">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Code</th>
+                        <th scope="col">Rank</th>
+                        <th scope="col">
+                            Department
+                        </th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <th scope="row">@item.id</th>
+                            <td>@item.name</td>
+                            <td>@item.code</td>
+                            <td>@item.rank</td>
+                            <td>@item.department_id</td>
+                            
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

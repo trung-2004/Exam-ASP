@@ -1,0 +1,42 @@
+﻿@model Exam.Models.Employee.EmployeeViewModel;
+@{
+
+}
+<div class="container">
+    <h1>Create Department</h1>
+    <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <form action="@Url.ActionLink("Create")" method="post">
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" name="name" class="form-control" placeholder="Enter Name">
+                    @Html.ValidationMessageFor(m=>m.name, "", new {@class="text-danger"})
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Code</label>
+                    <input type="text" name="code" class="form-control" placeholder="Enter Code" min="0">
+                    @Html.ValidationMessageFor(m=>m.code, "", new {@class="text-danger"})
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Rank</label>
+                    <input type="text" name="rank" class="form-control" placeholder="Enter Rank">
+                    @Html.ValidationMessageFor(m=>m.rank, "", new {@class="text-danger"})
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Category</label>
+                    <select class="form-select" aria-label="Default select example" name="department_id">
+                        @foreach (var item in ViewBag.Departments)
+                        {
+                            <option value="@item.id">@item.name</option>
+                        }
+                    </select>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Create</button>
+            </form>
+        </div>
+        <div class="col-lg-4"></div>
+    </div>
+</div>
